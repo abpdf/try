@@ -21,19 +21,21 @@ class MyApp extends StatelessWidget {
           theme: yaru.theme,          // 亮色主题
           darkTheme: yaru.darkTheme,  // 暗色主题
           themeMode: ThemeMode.system, // 跟随系统（可选，这样能自动切换明/暗）
-          home: Scaffold(
+            home: Scaffold(
             appBar: AppBar(title: const Text('flutter_rust_bridge quickstart')),
-            body: Center(
-              children: [
-                Text(
-                  'Action: Call Rust `greet("Tom")`\nResult: `${greet(name: "Tom")}`',
-                ),
-                Text(
-                  '尝试中文',
-                ),
-              ]
-            ),
+    body: Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min, // shrink to fit contents
+        mainAxisAlignment: MainAxisAlignment.center, // center vertically
+        children: [
+          Text(
+            'Action: Call Rust `greet("Tom")`\nResult: `${greet(name: "Tom")}`',
           ),
+          const Text('尝试中文'),
+        ],
+      ),
+    ),
+  ),
         );
       },
     );
